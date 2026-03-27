@@ -20,54 +20,76 @@ function setKetNoiVisible(isVisible) {
 function handleLoaiKhachHangChange() {
   const loai = document.getElementById('loaiKhachHang')?.value;
   setKetNoiVisible(loai === 'doanhNghiep');
+  const errorSoKetNoi = document.getElementById('errorSoKetNoi');
+  if (loai !== 'doanhNghiep') hideError(errorSoKetNoi);
 }
 
 function tinhTienCap() {
+  const element = {
+    errorLoaiKhachHang: document.getElementById('errorLoaiKhachHang'),
+    errorMaKhachHang: document.getElementById('errorMaKhachHang'),
+    errorSoKenhCaoCap: document.getElementById('errorSoKenhCaoCap'),
+    errorSoKetNoi: document.getElementById('errorSoKetNoi'),
+    resultWrapper4: document.getElementById('resultWrapper4'),
+    txtResult4: document.getElementById('txtResult4'),
+  };
+
+  hideError(element.errorLoaiKhachHang);
+  hideError(element.errorMaKhachHang);
+  hideError(element.errorSoKenhCaoCap);
+  hideError(element.errorSoKetNoi);
+  if (element.resultWrapper4) element.resultWrapper4.classList.add('hidden');
+
   const loai = document.getElementById('loaiKhachHang')?.value ?? '';
   const ma = document.getElementById('maKhachHang')?.value ?? '';
   const soKenhStr = document.getElementById('soKenhCaoCap')?.value ?? '';
   const soKetNoiStr = document.getElementById('soKetNoi')?.value ?? '';
 
+  const soKenh = Number(soKenhStr);
+  const soKetNoi = Number(soKetNoiStr);
+
+  let isValid = true;
+
   if (loai === '') {
-    alert('Vui lòng chọn loại khách hàng!');
-    return;
+    showError(element.errorLoaiKhachHang, 'Vui lòng chọn loại khách hàng');
+    isValid = false;
   }
 
   if (ma.trim() === '') {
-    alert('Vui lòng nhập mã khách hàng!');
-    return;
+    showError(element.errorMaKhachHang, 'Vui lòng nhập mã khách hàng');
+    isValid = false;
   }
 
-  const soKenh = Number(soKenhStr);
-  if (!Number.isFinite(soKenh) || soKenh < 0) {
-    alert('Số kênh cao cấp không hợp lệ!');
-    return;
+  if (soKenhStr === '' || !Number.isFinite(soKenh) || soKenh < 0 || !Number.isInteger(soKenh)) {
+    showError(element.errorSoKenhCaoCap, 'Số kênh cao cấp phải là số nguyên >= 0');
+    isValid = false;
   }
+
+  if (loai === 'doanhNghiep') {
+    if (soKetNoiStr === '' || !Number.isFinite(soKetNoi) || soKetNoi <= 0 || !Number.isInteger(soKetNoi)) {
+      showError(element.errorSoKetNoi, 'Số kết nối phải là số nguyên > 0');
+      isValid = false;
+    }
+  }
+
+  if (!isValid) return;
 
   let tongTien = 0;
 
   if (loai === 'nhaDan') {
     tongTien = 4.5 + 20.5 + soKenh * 7.5;
   } else if (loai === 'doanhNghiep') {
-    const soKetNoi = Number(soKetNoiStr);
-    if (!Number.isFinite(soKetNoi) || soKetNoi <= 0) {
-      alert('Vui lòng nhập số kết nối hợp lệ!');
-      return;
-    }
-
     const phiXuLy = 15;
     const phiCoBan = 75;
     const phiThemKetNoi = soKetNoi > 10 ? (soKetNoi - 10) * 5 : 0;
     const phiKenhCaoCap = soKenh * 50;
     tongTien = phiXuLy + phiCoBan + phiThemKetNoi + phiKenhCaoCap;
   } else {
-    alert('Loại khách hàng không hợp lệ!');
     return;
   }
 
-  const resultWrapper4 = document.getElementById('resultWrapper4');
-  const txtResult4 = document.getElementById('txtResult4');
-
+  const resultWrapper4 = element.resultWrapper4;
+  const txtResult4 = element.txtResult4;
   if (!resultWrapper4 || !txtResult4) return;
 
   resultWrapper4.classList.remove('hidden');

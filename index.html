@@ -12,7 +12,7 @@
       class="bg-white rounded-lg shadow-md w-full max-w-2xl overflow-hidden border-solid border-5px border-black-700"
     >
       <!-- Header -->
-      <div class="bg-blue-600 p-4 border-b border-gray-200">
+      <div class="bg-blue-900 p-4 border-b border-gray-200">
         <h2 class="text-xl font-bold text-white text-center">
           Quản lý tuyển sinh
         </h2>
@@ -30,6 +30,7 @@
               id="diemChuan"
               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             />
+            <p id="errorDiemChuan" class="text-red-600 text-sm mt-1 hidden"></p>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1"
@@ -69,6 +70,7 @@
               id="diemMon1"
               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             />
+            <p id="errorDiemMon1" class="text-red-600 text-sm mt-1 hidden"></p>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1"
@@ -79,6 +81,7 @@
               id="diemMon2"
               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             />
+            <p id="errorDiemMon2" class="text-red-600 text-sm mt-1 hidden"></p>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1"
@@ -89,6 +92,7 @@
               id="diemMon3"
               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             />
+            <p id="errorDiemMon3" class="text-red-600 text-sm mt-1 hidden"></p>
           </div>
         </div>
 
@@ -96,7 +100,7 @@
         <div class="flex justify-center mb-6">
           <button
             onclick="tinhDiemTuyenSinh()"
-            class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-8 rounded-md transition-colors w-full md:w-auto"
+            class="bg-blue-900 hover:bg-blue-700 text-white font-medium py-2 px-8 rounded-md transition-colors w-full md:w-auto"
           >
             Kết Quả
           </button>
@@ -115,7 +119,7 @@
     <!-- Bài 2: Tính tiền điện -->
     <div class="bg-white rounded-lg shadow-md w-full max-w-2xl overflow-hidden">
       <!-- Header -->
-      <div class="bg-blue-600 p-4 border-b border-gray-200">
+      <div class="bg-gray-700 p-4 border-b border-gray-200">
         <h2 class="text-xl font-bold text-white text-center">Tính tiền điện</h2>
       </div>
 
@@ -131,6 +135,7 @@
               id="hoTen"
               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             />
+            <p id="errorHoTen2" class="text-red-600 text-sm mt-1 hidden"></p>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1"
@@ -141,6 +146,7 @@
               id="soKw"
               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             />
+            <p id="errorSoKw" class="text-red-600 text-sm mt-1 hidden"></p>
           </div>
         </div>
 
@@ -148,7 +154,7 @@
         <div class="flex justify-center mb-6">
           <button
             onclick="tinhTienDien()"
-            class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-8 rounded-md transition-colors w-full md:w-auto"
+            class="bg-gray-700 hover:bg-gray-500 text-white font-medium py-2 px-8 rounded-md transition-colors w-full md:w-auto"
           >
             Tính tiền điện
           </button>
@@ -169,7 +175,7 @@
       class="bg-white rounded-lg shadow-md w-full max-w-2xl overflow-hidden mb-8"
     >
       <!-- Header -->
-      <div class="bg-blue-600 p-4 border-b border-gray-200">
+      <div class="bg-green-900 p-4 border-b border-gray-200">
         <h2 class="text-xl font-bold text-white text-center">
           Tính thuế thu nhập cá nhân
         </h2>
@@ -187,6 +193,7 @@
               id="hoTen3"
               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             />
+            <p id="errorHoTen3" class="text-red-600 text-sm mt-1 hidden"></p>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1"
@@ -197,6 +204,7 @@
               id="thuNhap"
               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             />
+            <p id="errorThuNhap" class="text-red-600 text-sm mt-1 hidden"></p>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1"
@@ -207,6 +215,10 @@
               id="soNguoiPhuThuoc"
               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             />
+            <p
+              id="errorSoNguoiPhuThuoc"
+              class="text-red-600 text-sm mt-1 hidden"
+            ></p>
           </div>
         </div>
 
@@ -214,7 +226,7 @@
         <div class="flex justify-center mb-6">
           <button
             onclick="tinhThueThuNhap()"
-            class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-8 rounded-md transition-colors w-full md:w-auto"
+            class="bg-green-900 hover:bg-green-700 text-white font-medium py-2 px-8 rounded-md transition-colors w-full md:w-auto"
           >
             Tính tiền thuế
           </button>
@@ -235,7 +247,7 @@
       class="bg-white rounded-lg shadow-md w-full max-w-2xl overflow-hidden mb-8"
     >
       <!-- Header -->
-      <div class="bg-blue-600 p-4 border-b border-gray-200">
+      <div class="bg-amber-700 p-4 border-b border-gray-200">
         <h2 class="text-xl font-bold text-white text-center">Tính tiền cáp</h2>
       </div>
       <!-- Form -->
@@ -253,6 +265,7 @@
               <option value="nhaDan">Nhà dân</option>
               <option value="doanhNghiep">Doanh nghiệp</option>
             </select>
+            <p id="errorLoaiKhachHang" class="text-red-600 text-sm mt-1 hidden"></p>
           </div>
 
           <div>
@@ -264,6 +277,7 @@
               id="maKhachHang"
               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             />
+            <p id="errorMaKhachHang" class="text-red-600 text-sm mt-1 hidden"></p>
           </div>
 
           <div>
@@ -275,6 +289,7 @@
               id="soKenhCaoCap"
               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             />
+            <p id="errorSoKenhCaoCap" class="text-red-600 text-sm mt-1 hidden"></p>
           </div>
         </div>
 
@@ -291,13 +306,14 @@
               id="soKetNoi"
               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             />
+            <p id="errorSoKetNoi" class="text-red-600 text-sm mt-1 hidden"></p>
           </div>
         </div>
         <!-- Submit Button -->
         <div class="flex justify-center mb-6">
           <button
             onclick="tinhTienCap()"
-            class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-8 rounded-md transition-colors w-full md:w-auto"
+            class="bg-amber-700 hover:bg-amber-500 text-white font-medium py-2 px-8 rounded-md transition-colors w-full md:w-auto"
           >
             Tính tiền cáp
           </button>
